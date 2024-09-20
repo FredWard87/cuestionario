@@ -12,7 +12,7 @@ const Resultados = () => {
 
     useEffect(() => {
         // Obtener las respuestas desde el backend
-        axios.get('http://localhost:5000/respuestas')
+        axios.get('https://cuestionario-km55.onrender.com/respuestas')
             .then((res) => {
                 setRespuestas(res.data);
             })

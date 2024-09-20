@@ -67,7 +67,7 @@ const Cuestionario = () => {
 
     const enviarRespuestas = () => {
         preguntas.forEach((pregunta, index) => {
-            axios.post('http://localhost:5000/respuestas', {
+            axios.post('https://cuestionario-km55.onrender.com/respuestas', {
                 seccion: pregunta.seccion,
                 pregunta: pregunta.pregunta,
                 respuesta: respuestas[index],
