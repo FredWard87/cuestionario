@@ -1,26 +1,19 @@
-// server.js
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-// Crear la aplicación de Express
 const app = express();
 
-// Middlewares
 app.use(cors());
-app.use(express.json());  // Para procesar JSON en las solicitudes
+app.use(express.json());
 
-// Conexión a MongoDB Atlas
-const uri = 'mongodb+srv://r41474721:3keEVnp6A0hm0iH4@<cluster-url>/<dbname>?retryWrites=true&w=majority';
-
-mongoose.connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(() => {
-    console.log('Conectado a MongoDB Atlas');
-}).catch(err => {
-    console.error('Error conectando a MongoDB:', err);
-});
+mongoose.connect('mongodb+srv://r41474721:3keEVnp6A0hm0iH4@mi-cluster.mongodb.net/cuestionario?retryWrites=true&w=majority')
+    .then(() => {
+        console.log('Conectado a MongoDB');
+    })
+    .catch(err => {
+        console.error('Error conectando a MongoDB:', err);
+    });
 
 // Definir el esquema de respuestas
 const RespuestaSchema = new mongoose.Schema({
