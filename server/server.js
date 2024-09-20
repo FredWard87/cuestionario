@@ -10,12 +10,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());  // Para procesar JSON en las solicitudes
 
-// Conexión a MongoDB
-mongoose.connect('mongodb://localhost/cuestionario', {
+// Conexión a MongoDB Atlas
+const uri = 'mongodb+srv://r41474721:3keEVnp6A0hm0iH4@<cluster-url>/<dbname>?retryWrites=true&w=majority';
+
+mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
-    console.log('Conectado a MongoDB');
+    console.log('Conectado a MongoDB Atlas');
 }).catch(err => {
     console.error('Error conectando a MongoDB:', err);
 });
