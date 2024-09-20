@@ -2,12 +2,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
+// Crear la aplicación de Express
 const app = express();
 
+// Middlewares
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://r41474721:3keEVnp6A0hm0iH4@mi-cluster.mongodb.net/cuestionario?retryWrites=true&w=majority')
+// Conexión a MongoDB Atlas
+mongoose.connect('mongodb+srv://r41474721:3keEVnp6A0hm0iH4@cluster0.z3klu.mongodb.net/cuestionario?retryWrites=true&w=majority&appName=Cluster0')
     .then(() => {
         console.log('Conectado a MongoDB');
     })
@@ -19,7 +22,7 @@ mongoose.connect('mongodb+srv://r41474721:3keEVnp6A0hm0iH4@mi-cluster.mongodb.ne
 const RespuestaSchema = new mongoose.Schema({
     seccion: String,
     pregunta: String,
-    respuesta: mongoose.Schema.Types.Mixed,  // Permitir número o texto
+    respuesta: mongoose.Schema.Types.Mixed, // Permitir número o texto
 });
 
 // Modelo para las respuestas
